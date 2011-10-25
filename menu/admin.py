@@ -1,7 +1,7 @@
 from django.contrib import admin
 from menu.models import Menu, MenuItem
 
-class MenuItemInline(admin.StackedInline):
+class MenuItemInline(admin.TabularInline):
     model = MenuItem
 
 class MenuAdmin(admin.ModelAdmin):
