@@ -17,12 +17,12 @@ Installation & Configuration:
 
 2. Add `menu` to your `INSTALLED_APPS`
 
-3. Add `django.core.context_processors.request` to your `TEMPLATE_CONTEXT_PROCESSORS`. It is not there by defult. The defualt 'TEMPLATE_CONTEXT_PROCESSORS' are '"django.contrib.auth.context_processors.auth",
+3. Add `django.core.context_processors.request` to your `TEMPLATE_CONTEXT_PROCESSORS`. It is not there by defult. The defualt `TEMPLATE_CONTEXT_PROCESSORS` are `"django.contrib.auth.context_processors.auth",
     "django.core.context_processors.debug",
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
     "django.core.context_processors.static",
-    "django.contrib.messages.context_processors.messages"'
+    "django.contrib.messages.context_processors.messages"`
 
 4. Add a Menu (eg called `headernavigation`) and add some items to that menu
 
