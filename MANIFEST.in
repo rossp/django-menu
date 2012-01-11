@@ -1,0 +1,4 @@
+include README.rst
+include setup.py
+
+recursive-include menu *.py
