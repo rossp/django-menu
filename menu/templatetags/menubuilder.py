@@ -50,9 +50,13 @@ class SubMenuObject(template.Node):
 
 def get_items(menu, current_path, user):
     menuitems = []
-    for i in MenuItem.objects.filter(menu__slug=menu).order_by('order'):
+    for i in MenuItem.objects.filter(menu=menu).order_by('order'):
         current = ( i.link_url != '/' and current_path.endswith(i.link_url + '/')) or ( i.link_url == '/' and current_path == '/' )
-        if not i.login_required or ( i.login_required and user.is_authenticated() ):
+        if menu.base_url and i.link_url == menu.base_url and current_path != i.link_url:
+            current = False
+        show_anonymous = i.anonymous_only and user.is_anonymous()
+        show_auth = i.login_required and user.is_authenticated()
+        if (not (i.login_required or i.anonymous_only)) or (i.login_required and show_auth) or (i.anonymous_only and show_anonymous):
             menuitems.append({'url': i.link_url, 'title': i.title, 'current': current,})
     return menuitems
 

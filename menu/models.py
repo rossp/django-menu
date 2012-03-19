@@ -11,7 +11,7 @@ class Menu(models.Model):
 
     def save(self, force_insert=False, force_update=False):
         """
-        Re-order all items at from 10 upwards, at intervals of 10.
+        Re-order all items from 10 upwards, at intervals of 10.
         This makes it easy to insert new items in the middle of 
         existing items without having to manually shuffle 
         them all around.
@@ -29,7 +29,8 @@ class MenuItem(models.Model):
     order = models.IntegerField()
     link_url = models.CharField(max_length=100, help_text='URL or URI to the content, eg /about/ or http://foo.com/')
     title = models.CharField(max_length=100)
-    login_required = models.BooleanField(blank=True)
+    login_required = models.BooleanField(blank=True, help_text='Should this item only be shown to authenticated users?')
+    anonymous_only = models.BooleanField(blank=True, help_text='Should this item only be shown to non-logged-in users?')
     
     def __unicode__(self):
         return "%s %s. %s" % (self.menu.slug, self.order, self.title)
