@@ -20,7 +20,8 @@ class MenuObject(template.Node):
     def render(self, context):
         current_path = context['request'].path
         user = context['request'].user
-        context['menuitems'] = get_items(self.menu_name, current_path, user)
+        menu = Menu.objects.get(slug=self.menu_name)
+        context['menuitems'] = get_items(menu, current_path, user)
         return ''
   
 def build_sub_menu(parser, token):
@@ -42,7 +43,7 @@ class SubMenuObject(template.Node):
                 menu = m
 
         if menu:
-            context['submenu_items'] = get_items(menu.slug, current_path, user)
+            context['submenu_items'] = get_items(menu, current_path, user)
             context['submenu'] = menu
         else:
             context['submenu_items'] = context['submenu'] = None
@@ -50,8 +51,8 @@ class SubMenuObject(template.Node):
 
 def get_items(menu, current_path, user):
     menuitems = []
-    for i in MenuItem.objects.filter(menu__slug=menu).order_by('order'):
-        current = ( i.link_url != '/' and current_path.endswith(i.link_url + '/')) or ( i.link_url == '/' and current_path == '/' )
+    for i in MenuItem.objects.filter(menu=menu).order_by('order'):
+        current = ( i.link_url != '/' and current_path.startswith(i.link_url)) or ( i.link_url == '/' and current_path == '/' )
         if menu.base_url and i.link_url == menu.base_url and current_path != i.link_url:
             current = False
         show_anonymous = i.anonymous_only and user.is_anonymous()
