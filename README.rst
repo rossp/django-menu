@@ -47,3 +47,15 @@ website tree (i.e. a dozen pages underneath ``/about/``, plus a few under
 In your template, instead of the ``{% menu %}`` tag use ``{% submenu %}``.  If a 
 submenu for the current URI exists, it will be shown. The ``{{ submenu_items }}``
 list contains your navigation items, ready to output like in the examples above.
+
+Caching:
+--------
+To avoid hitting the database every time a user requests a page, the menu items are 
+cached if you have a cache configured. Caching is not used when ``settings.DEBUG`` is ``True``.
+
+To disable caching, set the setting ``MENU_CACHE_TIME`` to ``-1`` or remove your 
+Django Cache configuration.
+
+To enable caching to continue to let you make items available to anonymous or 
+authenticated users, and to enable the "Current Page" functionality, the cache
+will contain one dataset for each menu, authentication & path combination.
