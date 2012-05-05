@@ -68,7 +68,10 @@ def get_items(menu_name, current_path, user):
     else:
         menuitems = []
         
-    menu = Menu.objects.get(slug=menu_name)
+    try:
+        menu = Menu.objects.get(slug=menu_name)
+    except Menu.DoesNotExist:
+        return []
 
     for i in MenuItem.objects.filter(menu=menu).order_by('order'):
         current = ( i.link_url != '/' and current_path.startswith(i.link_url)) or ( i.link_url == '/' and current_path == '/' )
