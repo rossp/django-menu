@@ -1,13 +1,36 @@
+from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+
 class Menu(models.Model):
-    name = models.CharField(max_length=100)
-    slug = models.SlugField()
-    base_url = models.CharField(max_length=100, blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
+    name = models.CharField(
+        _(u'Name'),
+        max_length=100
+        )
+
+    slug = models.SlugField(
+        _(u'Slug')
+        )
+
+    base_url = models.CharField(
+        _(u'Base URL'),
+        max_length=100,
+        blank=True,
+        null=True
+        )
+
+    description = models.TextField(
+        _(u'Description'),
+        blank=True,
+        null=True
+        )
+
+    class Meta:
+        verbose_name = _(u'menu')
+        verbose_name_plural = _(u'menus')
 
     def __unicode__(self):
-        return "%s" % self.name
+        return u"%s" % self.name
 
     def save(self, force_insert=False, force_update=False):
         """
@@ -17,20 +40,51 @@ class Menu(models.Model):
         them all around.
         """
         super(Menu, self).save(force_insert, force_update)
-        
+
         current = 10
         for item in MenuItem.objects.filter(menu=self).order_by('order'):
             item.order = current
             item.save()
             current += 10
 
+
 class MenuItem(models.Model):
-    menu = models.ForeignKey(Menu)
-    order = models.IntegerField()
-    link_url = models.CharField(max_length=100, help_text='URL or URI to the content, eg /about/ or http://foo.com/')
-    title = models.CharField(max_length=100)
-    login_required = models.BooleanField(blank=True, help_text='Should this item only be shown to authenticated users?')
-    anonymous_only = models.BooleanField(blank=True, help_text='Should this item only be shown to non-logged-in users?')
-    
+    menu = models.ForeignKey(
+        Menu,
+        verbose_name=_(u'Name')
+        )
+
+    order = models.IntegerField(
+        _(u'Order'),
+        default=500
+        )
+
+    link_url = models.CharField(
+        _(u'Link URL'),
+        max_length=100,
+        help_text=_(u'URL or URI to the content, eg /about/ or http://foo.com/')
+        )
+
+    title = models.CharField(
+        _(u'Title'),
+        max_length=100
+        )
+
+    login_required = models.BooleanField(
+        _(u'Login required'),
+        blank=True,
+        help_text=_(u'Should this item only be shown to authenticated users?')
+        )
+
+    anonymous_only = models.BooleanField(
+        _(u'Anonymous only'),
+        blank=True,
+        help_text=_(u'Should this item only be shown to non-logged-in users?')
+        )
+
+    class Meta:
+        verbose_name = _(u'menu item')
+        verbose_name_plural = _(u'menu items')
+
     def __unicode__(self):
-        return "%s %s. %s" % (self.menu.slug, self.order, self.title)
+        return u"%s %s. %s" % (self.menu.slug, self.order, self.title)
