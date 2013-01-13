@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-13 02:21+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: models.py:7 models.py:54
+msgid "Name"
+msgstr "Название"
+
+#: models.py:12
+msgid "Slug"
+msgstr "Код"
+
+#: models.py:16
+msgid "Base URL"
+msgstr "Базовый URL"
+
+#: models.py:23
+msgid "Description"
+msgstr "Описание"
+
+#: models.py:29
+msgid "menu"
+msgstr "меню"
+
+#: models.py:30
+msgid "menus"
+msgstr "меню"
+
+#: models.py:58
+msgid "Order"
+msgstr "Сортировка"
+
+#: models.py:63
+msgid "Link URL"
+msgstr "URL"
+
+#: models.py:65
+msgid "URL or URI to the content, eg /about/ or http://foo.com/"
+msgstr "URL или URI страницы, например /about/ or http://foo.com/"
+
+#: models.py:69
+msgid "Title"
+msgstr "Заголовок"
+
+#: models.py:74
+msgid "Login required"
+msgstr "Для авторизированных"
+
+#: models.py:76
+msgid "Should this item only be shown to authenticated users?"
+msgstr "Если установить, то пункт меню будет показан только для авторизированных пользователей"
+
+#: models.py:80
+msgid "Anonymous only"
+msgstr "Для анонимных"
+
+#: models.py:82
+msgid "Should this item only be shown to non-logged-in users?"
+msgstr "Если установить, то пункт меню будет показан только для не авторизированных пользователей"
+
+#: models.py:86
+msgid "menu item"
+msgstr "пункт меню"
+
+#: models.py:87
+msgid "menu items"
+msgstr "пункты меню"
