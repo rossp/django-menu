@@ -32,14 +32,14 @@ class Menu(models.Model):
     def __unicode__(self):
         return u"%s" % self.name
 
-    def save(self, force_insert=False, force_update=False):
+    def save(self, *args, **kwargs):
         """
         Re-order all items from 10 upwards, at intervals of 10.
-        This makes it easy to insert new items in the middle of 
-        existing items without having to manually shuffle 
+        This makes it easy to insert new items in the middle of
+        existing items without having to manually shuffle
         them all around.
         """
-        super(Menu, self).save(force_insert, force_update)
+        super(Menu, self).save(*args, **kwargs)
 
         current = 10
         for item in MenuItem.objects.filter(menu=self).order_by('order'):
