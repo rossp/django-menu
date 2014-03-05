@@ -79,7 +79,7 @@ class MenuItem(models.Model):
     anonymous_only = models.BooleanField(
         _(u'Anonymous only'),
         blank=True,
-        help_text=_(u'Should this item only be shown to non-logged-in users?')
+        help_text=_(u'Should this item only be shown to non-logged-in users? This is useful for adding sign up or log in links.')
         )
 
     class Meta:
