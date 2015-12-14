@@ -3,6 +3,7 @@ from menu.models import Menu, MenuItem
 
 class MenuItemInline(admin.TabularInline):
     model = MenuItem
+    ordering = ('order',)
 
 class MenuAdmin(admin.ModelAdmin):
     inlines = [MenuItemInline,]
