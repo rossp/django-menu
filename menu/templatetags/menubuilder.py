@@ -2,7 +2,9 @@ from menu.models import Menu, MenuItem
 from django import template
 from django.core.cache import cache
 
+
 register = template.Library()
+
 
 def build_menu(parser, token):
     """
@@ -11,8 +13,9 @@ def build_menu(parser, token):
     try:
         tag_name, menu_name = token.split_contents()
     except:
-        raise template.TemplateSyntaxError, "%r tag requires exactly one argument" % token.contents.split()[0]
+        raise template.TemplateSyntaxError("%r tag requires exactly one argument" % token.contents.split()[0])
     return MenuObject(menu_name)
+
 
 class MenuObject(template.Node):
     def __init__(self, menu_name):
@@ -24,11 +27,13 @@ class MenuObject(template.Node):
         context['menuitems'] = get_items(self.menu_name, current_path, user)
         return ''
   
+
 def build_sub_menu(parser, token):
     """
     {% submenu %}
     """
     return SubMenuObject()
+
 
 class SubMenuObject(template.Node):
     def __init__(self):
@@ -48,6 +53,7 @@ class SubMenuObject(template.Node):
         else:
             context['submenu_items'] = context['submenu'] = None
         return ''
+
 
 def get_items(menu_name, current_path, user):
     """
@@ -85,6 +91,7 @@ def get_items(menu_name, current_path, user):
     if cache_time >= 0 and not debug:
         cache.set(cache_key, menuitems, cache_time)
     return menuitems
+
 
 register.tag('menu', build_menu)
 register.tag('submenu', build_sub_menu)
