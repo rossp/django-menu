@@ -74,9 +74,10 @@ def get_items(menu_name, current_path, user):
     else:
         menuitems = []
         
-    try:
-        menu = Menu.objects.get(slug=menu_name)
-    except Menu.DoesNotExist:
+
+    menu = Menu.objects.filter(slug=menu_name).first()
+
+    if not menu:
         return []
 
     for i in MenuItem.objects.filter(menu=menu).order_by('order'):

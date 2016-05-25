@@ -1,0 +1,88 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-22 22:05+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Wang WenPei <wangwenpei@nextoa.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: menu/apps.py:8 menu/apps.py:9
+msgid "Menu"
+msgstr "菜单项"
+
+#: menu/models.py:7 menu/models.py:57
+msgid "Name"
+msgstr "名称"
+
+#: menu/models.py:12
+msgid "Slug"
+msgstr "菜单组标签"
+
+#: menu/models.py:16
+msgid "Base URL"
+msgstr "基础URL"
+
+#: menu/models.py:23
+msgid "Description"
+msgstr "描述"
+
+#: menu/models.py:29
+msgid "menu"
+msgstr "菜单组"
+
+#: menu/models.py:30
+msgid "menus"
+msgstr "菜单组"
+
+#: menu/models.py:61
+msgid "Order"
+msgstr "排序"
+
+#: menu/models.py:66
+msgid "Link URL"
+msgstr "链接地址"
+
+#: menu/models.py:68
+msgid "URL or URI to the content, eg /about/ or http://foo.com/"
+msgstr "支持站内链接或站外链接, 比如: /about/ 或 http://foo.com/"
+
+#: menu/models.py:72
+msgid "Title"
+msgstr "菜单标题"
+
+#: menu/models.py:77
+msgid "Login required"
+msgstr "需要登录"
+
+#: menu/models.py:79
+msgid "Should this item only be shown to authenticated users?"
+msgstr "设定当前菜单只在登录时才显示"
+
+#: menu/models.py:83
+msgid "Anonymous only"
+msgstr "只在匿名时显示"
+
+#: menu/models.py:85
+msgid "Should this item only be shown to non-logged-in users?"
+msgstr "设定当前菜单只在未登录时才显示"
+
+#: menu/models.py:89
+msgid "menu item"
+msgstr "菜单"
+
+#: menu/models.py:90
+msgid "menu items"
+msgstr "菜单"
