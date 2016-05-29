@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-22 22:05+0800\n"
+"POT-Creation-Date: 2016-05-29 09:51+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Wang WenPei <wangwenpei@nextoa.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
-#: menu/apps.py:8 menu/apps.py:9
+#: menu/apps.py:9
 msgid "Menu"
 msgstr "菜单项"
 
@@ -80,9 +80,17 @@ msgid "Should this item only be shown to non-logged-in users?"
 msgstr "设定当前菜单只在未登录时才显示"
 
 #: menu/models.py:89
+msgid "Dynamic mode"
+msgstr "动态URL模式"
+
+#: menu/models.py:92
+msgid "Should this is a dynamic URL?"
+msgstr "标记为动态URL"
+
+#: menu/models.py:98
 msgid "menu item"
 msgstr "菜单"
 
-#: menu/models.py:90
+#: menu/models.py:99
 msgid "menu items"
 msgstr "菜单"
