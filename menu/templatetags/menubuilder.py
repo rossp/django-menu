@@ -87,7 +87,7 @@ def get_items(menu_name, current_path, user):
         show_anonymous = i.anonymous_only and user.is_anonymous()
         show_auth = i.login_required and user.is_authenticated()
         if (not (i.login_required or i.anonymous_only)) or (i.login_required and show_auth) or (i.anonymous_only and show_anonymous):
-            menuitems.append({'url': i.link_url, 'title': i.title, 'current': current,})
+            menuitems.append({'url': i.link_url, 'title': i.title, 'current': current, 'is_dynamic': i.is_dynamic})
 
     if cache_time >= 0 and not debug:
         cache.set(cache_key, menuitems, cache_time)
