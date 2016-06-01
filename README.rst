@@ -48,6 +48,29 @@ In your template, instead of the ``{% menu %}`` tag use ``{% submenu %}``.  If a
 submenu for the current URI exists, it will be shown. The ``{{ submenu_items }}``
 list contains your navigation items, ready to output like in the examples above.
 
+Reverse URL:
+------------
+begin 0.1.10, django-menu support make reverse-url and static-url together.:::
+
+                {% if item.is_dynamic %}
+                        <li><a href="{% url item.url %}">{{ item.title }}</a></li>
+                {% else %}
+                        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                {% endif %}
+
+
+before 0.1.10, if you want make reverse-url and static-url together,
+you have to do it like this.:::
+
+                {% if item.title == 'reverse-url-01' %}
+                        <li><a href="{% url item.url %}">{{ item.title }}</a></li>
+                {% elif item.title == 'reverse-url-02' %}
+                        <li><a href="{% url item.url %}">{{ item.title }}</a></li>
+                {% else %}
+                        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                {% endif %}
+
+
 Caching:
 --------
 To avoid hitting the database every time a user requests a page, the menu items are 
