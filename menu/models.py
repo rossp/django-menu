@@ -85,14 +85,12 @@ class MenuItem(models.Model):
         help_text=_(u'Should this item only be shown to non-logged-in users?')
         )
 
-    is_dynamic = models.BooleanField(
-        _(u'Dynamic mode'),
+    is_reverse_url = models.BooleanField(
+        _(u'Is reverse URL'),
         blank=True,
         default=False,
-        help_text=_(u'Should this is a dynamic URL?')
+        help_text=_(u'Should Link URL need reverse?')
         )
-
-
 
     class Meta:
         verbose_name = _(u'menu item')
@@ -100,3 +98,7 @@ class MenuItem(models.Model):
 
     def __unicode__(self):
         return u"%s %s. %s" % (self.menu.slug, self.order, self.title)
+
+    def __str__(self):
+        return self.__unicode__()
+

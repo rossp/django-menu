@@ -15,7 +15,7 @@ Installation & Configuration:
 
 1. ``pip install django-menu``
 
-2. Add ``menu`` to your ``INSTALLED_APPS``
+2. Add ``django.contrib.sites`` and ``menu`` to your ``INSTALLED_APPS``
 
 3. ``./manage.py migrate menu`` (or ``./manage.py syncdb`` if you don't use South. You should use South.)
 
@@ -50,21 +50,23 @@ list contains your navigation items, ready to output like in the examples above.
 
 Reverse URL:
 ------------
-begin 0.1.10, django-menu support make reverse-url and static-url together.:::
+begin 0.1.11, django-menu support make reverse-url and static-url together.:::
 
-                {% if item.is_dynamic %}
+                {% if item.is_reverse_url %}
                         <li><a href="{% url item.url %}">{{ item.title }}</a></li>
                 {% else %}
                         <li><a href="{{ item.url }}">{{ item.title }}</a></li>
                 {% endif %}
 
 
-before 0.1.10, if you want make reverse-url and static-url together,
+before 0.1.11, if you want make reverse-url and static-url together,
 you have to do it like this.:::
 
                 {% if item.title == 'reverse-url-01' %}
                         <li><a href="{% url item.url %}">{{ item.title }}</a></li>
-                {% elif item.title == 'reverse-url-02' %}
+                {% elif item.title == 'another-reverse-url-02' %}
+                        <li><a href="{% url item.url %}">{{ item.title }}</a></li>
+                {% elif .... %}
                         <li><a href="{% url item.url %}">{{ item.title }}</a></li>
                 {% else %}
                         <li><a href="{{ item.url }}">{{ item.title }}</a></li>

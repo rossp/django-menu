@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-29 09:51+0800\n"
+"POT-Creation-Date: 2016-11-29 09:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Wang WenPei <wangwenpei@nextoa.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,17 +79,17 @@ msgid "Should this item only be shown to non-logged-in users?"
 msgstr "设定当前菜单只在未登录时才显示"
 
 #: menu/models.py:89
-msgid "Dynamic mode"
-msgstr "动态URL模式"
+msgid "Is reverse URL"
+msgstr "反向解析URL"
 
 #: menu/models.py:92
-msgid "Should this is a dynamic URL?"
-msgstr "标记为动态URL"
+msgid "Should Link URL need reverse?"
+msgstr "链接地址是否需要做反向解析？"
 
-#: menu/models.py:98
+#: menu/models.py:96
 msgid "menu item"
 msgstr "菜单"
 
-#: menu/models.py:99
+#: menu/models.py:97
 msgid "menu items"
 msgstr "菜单"
