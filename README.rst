@@ -15,7 +15,7 @@ Installation & Configuration:
 
 1. ``pip install django-menu``
 
-2. Add ``django.contrib.sites`` and ``menu`` to your ``INSTALLED_APPS``
+2. Add ``menu`` to your ``INSTALLED_APPS``
 
 3. ``./manage.py migrate menu`` (or ``./manage.py syncdb`` if you don't use South. You should use South.)
 
