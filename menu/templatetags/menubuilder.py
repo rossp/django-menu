@@ -92,7 +92,15 @@ def get_items(menu_name, current_path, user):
     if not menu:
         return []
 
-    for i in MenuItem.objects.filter(menu=menu).order_by('order'):
+    if (str(user) == 'AnonymousUser' or str(user) == 'None'):
+        Items = MenuItem.objects.filter(menu=menu).filter(login_required__lt=1).filter(staff_required__lt=1).order_by('order')
+    else:
+        if user.is_staff:
+            Items = MenuItem.objects.filter(menu=menu).filter(login_required__lte=1).filter(staff_required__lte=1).order_by('order')
+        else:
+            Items = MenuItem.objects.filter(menu=menu).filter(login_required__lte=1).filter(staff_required__lt=1).order_by('order')
+
+    for i in Items:
         if current_path:
             current = ( i.link_url != '/' and current_path.startswith(i.link_url)) or ( i.link_url == '/' and current_path == '/' )
             if menu.base_url and i.link_url == menu.base_url and current_path != i.link_url:
