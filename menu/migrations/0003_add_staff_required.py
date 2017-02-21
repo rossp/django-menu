@@ -7,6 +7,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('menu', '0001_initial'),
+        ('menu', '0002_booleandefaults'),
     ]
 
     operations = [
