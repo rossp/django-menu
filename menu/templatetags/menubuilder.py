@@ -81,7 +81,7 @@ def get_items(menu_name, current_path, user):
         is_anonymous = True
 
     if cache_time >= 0 and not debug:
-        cache_key = 'django-menu-items/%s/%s/%s'  % (menu_name, current_path, is_authenticated, is_staff)
+        cache_key = 'django-menu-items/%s/%s/%s/%s' % (menu_name, current_path, is_authenticated, is_staff)
         menuitems = cache.get(cache_key, [])
         if menuitems:
             return menuitems
