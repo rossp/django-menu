@@ -19,8 +19,10 @@ Installation & Configuration:
 
 3. ``./manage.py migrate menu`` (or ``./manage.py syncdb`` if you don't use South. You should use South.)
 
-4. Add ``django.core.context_processors.request`` to your ``TEMPLATE_CONTEXT_PROCESSORS``. It is not there by default. The default ``TEMPLATE_CONTEXT_PROCESSORS`` are:::
+4. Add ``django.core.context_processors.request`` to your ``TEMPLATE_CONTEXT_PROCESSORS``. It is not there by default. The default ``TEMPLATE_CONTEXT_PROCESSORS`` are:
 
+   .. code-block:: python
+  
                 "django.contrib.auth.context_processors.auth",
                 "django.core.context_processors.debug",
                 "django.core.context_processors.i18n",
@@ -30,7 +32,9 @@ Installation & Configuration:
 
 5. Add a Menu (eg called ``headernavigation``) and add some items to that menu
 
-6. In your template, load the menu tags and embed your primary menu.:::
+6. In your template, load the menu tags and embed your primary menu.
+
+   .. code-block:: html+django
 
                 <ul>{% load menubuilder %}{% menu headernavigation %}
                     {% for item in menuitems %}<li><a href="{{ item.url }}" title="{{ item.title|escape }}"{% if item.current %} class='current'{% endif %}>{{ item.title }}</a></li>
