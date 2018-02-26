@@ -54,7 +54,8 @@ class Menu(models.Model):
 class MenuItem(models.Model):
     menu = models.ForeignKey(
         Menu,
-        verbose_name=_(u'Name')
+        verbose_name=_(u'Name'),
+        on_delete=models.CASCADE,
         )
 
     order = models.IntegerField(
