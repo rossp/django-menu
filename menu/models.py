@@ -81,6 +81,13 @@ class MenuItem(models.Model):
         help_text=_(u'Should this item only be shown to authenticated users?')
         )
 
+    staff_required = models.BooleanField(
+        _(u'Staff required'),
+        blank=True,
+        default=False,
+        help_text=_(u'Should this item only be shown to members of staff?')
+        )
+
     anonymous_only = models.BooleanField(
         _(u'Anonymous only'),
         blank=True,

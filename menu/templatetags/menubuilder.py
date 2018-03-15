@@ -73,13 +73,15 @@ def get_items(menu_name, current_path, user):
 
     if user:
         is_authenticated = user.is_authenticated
+        is_staff = user.is_staff
         is_anonymous = user.is_anonymous
     else:
         is_authenticated = False
+        is_staff = False
         is_anonymous = True
 
     if cache_time >= 0 and not debug:
-        cache_key = 'django-menu-items/%s/%s/%s'  % (menu_name, current_path, is_authenticated)
+        cache_key = 'django-menu-items/%s/%s/%s/%s' % (menu_name, current_path, is_authenticated, is_staff)
         menuitems = cache.get(cache_key, [])
         if menuitems:
             return menuitems
@@ -102,7 +104,8 @@ def get_items(menu_name, current_path, user):
 
         show_anonymous = i.anonymous_only and is_anonymous
         show_auth = i.login_required and is_authenticated
-        if (not (i.login_required or i.anonymous_only)) or (i.login_required and show_auth) or (i.anonymous_only and show_anonymous):
+        show_staff = i.staff_required and is_staff
+        if (not (i.login_required or i.anonymous_only or i.staff_required)) or (i.login_required and show_auth) or (i.anonymous_only and show_anonymous) or (i.staff_required and show_staff == True):
             menuitems.append({'url': i.link_url, 'title': i.title, 'current': current,})
 
     if cache_time >= 0 and not debug:
