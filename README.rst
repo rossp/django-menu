@@ -19,16 +19,26 @@ Installation & Configuration:
 
 3. ``./manage.py migrate menu`` (or ``./manage.py syncdb`` if you don't use South. You should use South.)
 
-4. Add ``django.core.context_processors.request`` to your ``TEMPLATE_CONTEXT_PROCESSORS``. It is not there by default. The default ``TEMPLATE_CONTEXT_PROCESSORS`` are:
+4. Add ``django.template.context_processors.request`` to your ``TEMPLATE`` settings. Below is a reasonably safe ``TEMPLATES`` setting for most small projects, however yours may vary.:
 
    .. code-block:: python
   
-                "django.contrib.auth.context_processors.auth",
-                "django.core.context_processors.debug",
-                "django.core.context_processors.i18n",
-                "django.core.context_processors.media",
-                "django.core.context_processors.static",
-                "django.contrib.messages.context_processors.messages"
+               TEMPLATES = [
+                   {
+                       'BACKEND': 'django.template.backends.django.DjangoTemplates',
+                       'DIRS': [os.path.join(BASE_DIR, 'templates')],
+                       'APP_DIRS': True,
+                       'OPTIONS': {
+                           'context_processors': [
+                               'django.template.context_processors.debug',
+                               'django.template.context_processors.request',
+                               'django.contrib.auth.context_processors.auth',
+                               'django.contrib.messages.context_processors.messages',
+                               'django.template.context_processors.request',
+                           ],
+                       },
+                   },
+               ]
 
 5. Add a Menu (eg called ``headernavigation``) and add some items to that menu
 
