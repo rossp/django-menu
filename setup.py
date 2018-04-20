@@ -4,7 +4,7 @@ from distutils.util import convert_path
 from fnmatch import fnmatchcase
 from setuptools import setup, find_packages
 
-version = '0.1.10'
+version = '0.1.12'
 
 # Provided as an attribute, so you can append to these instead
 # of replicating them:
@@ -123,7 +123,7 @@ setup(
     keywords=['django', 'menus', 'navigatino'],
     author='Ross Poulton',
     author_email='ross@rossp.org',
-    url='http://github.com/rossp/django-menu',
+    url='https://github.com/rossp/django-menu',
     license='BSD',
     packages=find_packages(),
     package_data=find_package_data("menu", only_in_packages=False),
