@@ -1,5 +1,6 @@
 django-menu
 -----------
+django-menus is an app that provides some useful template helpers for rendering and handling menus within django projects.
 
 BSD-licensed menu tools for Django, built by Ross Poulton <http://www.rossp.org>
 
