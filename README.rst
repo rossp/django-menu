@@ -7,6 +7,7 @@ django-menu provides a basic structure for you to build multiple navigation
 menus for your website, such as the header menubar. These menus can be easily 
 maintained by staff using the Django administration without any knowledge 
 of HTML or Django internals.
+django-menus is an app that provides some useful template helpers for rendering and handling menus within django projects.
 
 Sub-menus can also be easily built and displayed only for particular URIs.
 
@@ -61,6 +62,35 @@ website tree (i.e. a dozen pages underneath ``/about/``, plus a few under
 In your template, instead of the ``{% menu %}`` tag use ``{% submenu %}``.  If a 
 submenu for the current URI exists, it will be shown. The ``{{ submenu_items }}``
 list contains your navigation items, ready to output like in the examples above.
+
+menu_item:
+----------
+An inclusion template tag that will create a single instance of a menu item, which will only be rendered if the logged in user can access the referenced view. Secondly, the currently active view will have a CSS class of active in it’s menu item.
+{% load menu_item %}
+
+{% menu_item "/foo/" "Foo" %}
+{% menu_item "/bar/" "Bar" %}
+{% menu_item "http://example.com" "Baz" %}
+
+If we were viewing /foo/, this renders to:
+
+<a class="active" href="/foo/">Foo</a>
+<a href="/bar/">Bar</a>
+<a href="http://example.com">Baz</a>
+
+tree_menu :
+-----------
+An extension to django-mptt, this is a template that you can use to have a dynamic tree menu, where selecting items with children expands them, and selecting a leaf node follows the link. To use it, you’ll need to have mptt installed into your project as well as this package.
+
+You use it like:
+
+{% load mptt_tags %}
+
+{% block tree_menu %}
+  {% full_tree_for_model app_label.ModelName as menu %}
+  {% include "menu/tree-menu.html" %}
+{% endblock %}
+
 
 Caching:
 --------
