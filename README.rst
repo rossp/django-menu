@@ -1,25 +1,23 @@
-django-menu
+Django-menu
 -----------
 
 BSD-licensed menu tools for Django, built by Ross Poulton <http://www.rossp.org>
 
-django-menu provides a basic structure for you to build multiple navigation 
-menus for your website, such as the header menubar. These menus can be easily 
-maintained by staff using the Django administration without any knowledge 
-of HTML or Django internals.
+Django-menu provides a basic structure for you to build multiple navigation menus for your websites, like the header menubar. These menus can be easily 
+maintained by the staff using the Django administration without any knowledge of HTML or Django internals.
 
-Sub-menus can also be easily built and displayed only for particular URIs.
+The Sub-menus can also be easily built and displayed only for particular URIs.
 
 Installation & Configuration:
 -----------------------------
 
-1. ``pip install django-menu``
+1. ``pip install Django-menu``
 
 2. Add ``menu`` to your ``INSTALLED_APPS``
 
 3. ``./manage.py migrate menu`` (or ``./manage.py syncdb`` if you don't use South. You should use South.)
 
-4. Add ``django.template.context_processors.request`` to your ``TEMPLATE`` settings. Below is a reasonably safe ``TEMPLATES`` setting for most small projects, however yours may vary.:
+4. Add ``django.template.context_processors.request`` to your ``TEMPLATE`` settings. Below is a reasonably safe ``TEMPLATES`` setting for most small projects, however, yours may vary.:
 
    .. code-block:: python
   
@@ -40,7 +38,7 @@ Installation & Configuration:
                    },
                ]
 
-5. Add a Menu (eg called ``headernavigation``) and add some items to that menu
+5. Add a Menu (eg called ``header navigation``) and add some items to that menu
 
 6. In your template, load the menu tags and embed your primary menu.
 
@@ -64,8 +62,7 @@ list contains your navigation items, ready to output like in the examples above.
 
 Caching:
 --------
-To avoid hitting the database every time a user requests a page, the menu items are 
-cached if you have a cache configured. Caching is not used when ``settings.DEBUG`` is ``True``.
+To avoid hitting the database every time a user requests a page, the menu items are cached if you have a cache configured. Caching is not used when ``settings.DEBUG`` is ``True``.
 
 To disable caching, set the setting ``MENU_CACHE_TIME`` to ``-1`` or remove your 
 Django Cache configuration.
