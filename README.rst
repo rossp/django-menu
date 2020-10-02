@@ -50,6 +50,14 @@ Installation & Configuration:
                     {% for item in menuitems %}<li><a href="{{ item.url }}" title="{{ item.title|escape }}"{% if item.current %} class='current'{% endif %}>{{ item.title }}</a></li>
                     {% endfor %}
                 </ul>
+                
+                
+Modules:
+-------
+1.Blogs
+2.Contact Ross
+3.Ross Poulton
+
 
 
 Submenus:
