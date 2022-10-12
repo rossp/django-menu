@@ -36,9 +36,6 @@ class Menu(models.Model):
     def __unicode__(self):
         return u"%s" % self.name
 
-    def __str__(self):
-        return self.__unicode__()
-
     def save(self, *args, **kwargs):
         """
         Re-order all items from 10 upwards, at intervals of 10.
@@ -92,9 +89,19 @@ class MenuItem(models.Model):
         help_text=_(u'Should this item only be shown to non-logged-in users?')
         )
 
+    is_reverse_url = models.BooleanField(
+        _(u'Is reverse URL'),
+        blank=True,
+        default=False,
+        help_text=_(u'Should Link URL need reverse?')
+        )
+
     class Meta:
         verbose_name = _(u'menu item')
         verbose_name_plural = _(u'menu items')
 
     def __unicode__(self):
         return u"%s %s. %s" % (self.menu.slug, self.order, self.title)
+
+    pass
+

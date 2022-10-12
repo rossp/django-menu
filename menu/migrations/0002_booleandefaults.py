@@ -22,4 +22,11 @@ class Migration(migrations.Migration):
             name='login_required',
             field=models.BooleanField(default=False, help_text='Should this item only be shown to authenticated users?', verbose_name='Login required'),
         ),
+        migrations.AddField(
+            model_name='menuitem',
+            name='is_reverse_url',
+            field=models.BooleanField(default=False,
+                                      help_text='Should Link URL need reverse?',
+                                      verbose_name='Is reverse URL'),
+        ),
     ]
